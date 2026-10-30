@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DASH: da Vinci Adapter</title>
+<meta name="description" content="DASH adapts unmodified da Vinci Classic and Xi surgical instruments onto humanoid and serial-link robots, with wireless tool identification.">
+<meta name="keywords" content="DASH, da Vinci, surgical robotics, humanoid robot, serial-link robot, RCM, teleoperation">
+<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./static/css/bulma.min.css">
+<link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+<link rel="stylesheet" href="./static/css/index.css">
+<script src="./static/js/jquery.min.js"></script>
+<script defer src="./static/js/fontawesome.all.min.js"></script>
+<script src="./static/js/bulma-carousel.min.js"></script>
+<script src="./static/js/index.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="#abstract">Abstract</a>
+      <a class="navbar-item" href="#video">Video</a>
+      <a class="navbar-item" href="#design">System Design</a>
+      <a class="navbar-item" href="#results">Results</a>
+      <a class="navbar-item" href="#BibTeX">BibTeX</a>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title"><span class="acro">DASH</span>: A <span class="hl">da</span> Vinci <span class="hl">A</span>dapter for <span class="hl">S</span>erial-link and <span class="hl">H</span>umanoid Robots as an Accessible Platform for Surgical Robotics Research</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Sara Wickenhiser<sup>1</sup>,</span>
+            <span class="author-block">Junrong Zhou<sup>1</sup>,</span>
+            <span class="author-block">Zekai Liang<sup>2</sup>,</span>
+            <span class="author-block">Lizzie Peiros<sup>2</sup>,</span>
+            <span class="author-block">Liu Shanglei<sup>3</sup>,</span>
+            <span class="author-block">Michael C. Yip<sup>2</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors affiliations">
+            <span class="author-block"><sup>1</sup>Mechanical and Aerospace Engineering,</span>
+            <span class="author-block"><sup>2</sup>Electrical and Computer Engineering,</span>
+            <span class="author-block"><sup>3</sup>Department of Surgery</span><br>
+            <span class="author-block">University of California San Diego</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./static/pdf/DASH_paper.pdf" target="_blank" rel="noopener"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="#video" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-video"></i></span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- BibTeX Link. -->
+              <span class="link-block">
+                <a href="#BibTeX" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-quote-right"></i></span>
+                  <span>BibTeX</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline poster="./static/images/poster.jpg">
+        <source src="./static/videos/teaser.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dash">DASH</span> lets humanoid and serial-link robots drive unmodified
+        da Vinci Classic and Xi instruments, here completing a peg transfer on both platforms.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video autoplay controls muted loop playsinline>
+            <source src="./static/videos/toolswap.mp4" type="video/mp4">
+          </video>
+          <p class="clip-caption"><b>Tool swapping.</b> Each inserted instrument is identified over RFID, and its kinematics and coupling matrix load automatically.</p>
+        </div>
+        <div class="item">
+          <video autoplay controls muted loop playsinline>
+            <source src="./static/videos/pegtransfer.mp4" type="video/mp4">
+          </video>
+          <p class="clip-caption"><b>Teleoperated peg transfer.</b> The surgeon console (MTM) commands both DASH-equipped arms.</p>
+        </div>
+        <div class="item">
+          <video autoplay controls muted loop playsinline>
+            <source src="./static/videos/humanoid.mp4" type="video/mp4">
+          </video>
+          <p class="clip-caption"><b>Humanoid platform.</b> A Unitree G1 operating da Vinci instruments about a remote center of motion.</p>
+        </div>
+        <div class="item">
+          <video autoplay controls muted loop playsinline>
+            <source src="./static/videos/serial.mp4" type="video/mp4">
+          </video>
+          <p class="clip-caption"><b>Serial-link platform.</b> Franka Emika Panda arms using the same adapters through interchangeable wrist mounts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Robotic minimally invasive surgery offers well-documented clinical benefits, but the cost and
+            infrastructure requirements of purpose-built platforms limit access in rural and lower-resourced
+            facilities. Recent work has teleoperated general-purpose robots for laparoscopic tasks and in vivo
+            procedures, but relied on handheld instruments coupled through passive linkages rather than native
+            robotic actuation.
+          </p>
+          <p>
+            Instead, we adapt da Vinci Classic and Xi instruments onto general-purpose robots that can integrate
+            in clinical workflows. We present <span class="dash">DASH</span>, a da Vinci Adapter for Serial-link and
+            Humanoid platforms, consisting of two types of adapters that require no modification to the instruments
+            themselves. Each adapter is compatible with many robotic platform load capacities, engages the
+            instrument's native latch, and wirelessly identifies inserted tools to load instrument-specific
+            kinematics and coupling matrices. Teleoperated experiments demonstrate the efficacy of DASH and its
+            benefits for enabling research access to surgical robotic platforms.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered" id="video">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <video controls preload="metadata" playsinline poster="./static/images/poster.jpg">
+            <source src="./static/videos/dash_video.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section" id="design">
+  <div class="container is-max-desktop">
+
+    <!-- Overview. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            Purpose-built surgical robots need dedicated operating suites. DASH decouples the da Vinci
+            instruments from the proprietary system so that compact, general-purpose robots can carry them.
+            Both adapters use the instrument's own latching mechanism, identify the tool wirelessly, and
+            adjust to its coupling matrix. Our contributions are:
+          </p>
+          <ul>
+            <li>The design and fabrication of separate da Vinci Classic and Xi tool adapters compatible with serial-link and humanoid platforms.</li>
+            <li>A wireless tool-identification pipeline that loads instrument-specific kinematics and calibration on insertion.</li>
+            <li>Quantitative evaluations on a humanoid platform against the previous humanoid laparoscopic system, showing large improvements in operational responsiveness and RCM control precision.</li>
+          </ul>
+        </div>
+        <figure class="figure narrow">
+          <img src="./static/images/fig1_overview.jpg" alt="Humanoid robot holding DASH C and DASH Xi adapters, with tool swapping and RFID tool identification insets.">
+          <figcaption><b>DASH on a humanoid.</b> DASH C and DASH Xi carry da Vinci instruments on a compact, versatile platform. Tools swap in and out, and an onboard RFID reader identifies each one from a sticker or transponder.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <!--/ Overview. -->
+
+    <!-- Two adapters. -->
+    <h2 class="title is-3" style="margin-top: 2.5rem;">System Design</h2>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-4">DASH C (Classic)</h3>
+          <p>
+            A guiding track and front support engage the Classic tool's built-in features to constrain lateral
+            motion. Inserting the tool presses a spring-loaded latch plate down. Once the tool is seated, the springs
+            push the plate back up and lock it in place. Pressing the tool's release disengages it.
+          </p>
+          <figure class="figure">
+            <img src="./static/images/fig3_dash_c.jpg" alt="CAD cutaway of DASH C showing spring engagement, guiding track, latch plate, front support, RFID reader, OpenRB-150 and XC330-T181 motors.">
+          </figure>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-4">DASH Xi</h3>
+          <p>
+            Snap-fit tabs grab the Xi tool's native latch. A 3&nbsp;mm wave spring in each engagement cap gives up
+            to 2&nbsp;mm of compression, so misaligned disks yield instead of damaging the tool. Up to five motors
+            drive the instrument; the springs are resin-printed in Gray V5.
+          </p>
+          <figure class="figure">
+            <img src="./static/images/fig4_dash_xi.jpg" alt="CAD cutaway of DASH Xi showing spring engagement, snap fit tab, motor IDs 1 to 5, RFID reader, OpenRB-150 and XC330-T181 motors.">
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            Both motor packs use an OpenRB-150 controller, a PN532 NFC RFID reader, and DYNAMIXEL XC330-T181-T
+            motors on a TTL bus at 11.1&nbsp;V. Each adapter weighs under 0.5&nbsp;kg with a tool inserted, which fits
+            the payload of humanoids such as the Unitree G1 and arms such as the Franka Emika Panda.
+          </p>
+        </div>
+        <div class="table-wrap content">
+          <table class="table spec">
+            <thead>
+              <tr><th>Design requirement</th><th>DASH C</th><th>DASH Xi</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Tool compatibility</td><td>da Vinci Classic</td><td>da Vinci Xi</td></tr>
+              <tr><td>Mass (including tool)</td><td class="num">&lt; 0.5 kg</td><td class="num">&lt; 0.5 kg</td></tr>
+              <tr><td>Degrees of freedom</td><td class="num">4</td><td class="num">4–5</td></tr>
+              <tr><td>Controls</td><td>EE orientation</td><td>EE orientation</td></tr>
+              <tr><td>Actuator mechanical power</td><td class="num">2 W / motor</td><td class="num">2 W / motor</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="title is-4">Robot-platform interface</h3>
+        <div class="content has-text-justified">
+          <p>
+            Each adapter bolts to an interchangeable wrist mount on its underside. One side of the mount fits DASH,
+            and the other fits the robot's end effector, so the same electronics move between platforms. This work
+            uses mounts for the Unitree G1 humanoid and the Franka Emika Panda.
+          </p>
+        </div>
+        <figure class="figure">
+          <img src="./static/images/fig2_platforms.jpg" alt="Humanoid and serial-link robots with DASH adapters and their CAD wrist mounts.">
+          <figcaption><b>Mounting.</b> The humanoid and serial manipulators operating with da Vinci Xi or Classic tools (real), with the interchangeable mounts that attach to the underside of each DASH type (CAD).</figcaption>
+        </figure>
+
+        <h3 class="title is-4" style="margin-top: 2rem;">Wireless tool identification and teleoperation</h3>
+        <div class="content has-text-justified">
+          <p>
+            A two-state controller switches between <i>searching</i> for a tool and <i>bridging</i> commands to the
+            motors. When the RFID reader detects a tool, the system loads its joint limits, shaft lengths, and coupling
+            matrix. An auto-zero routine then rotates each motor ±50° and back so the spring caps interlock with every
+            disk before teleoperation starts. Removing the tool returns the system to searching.
+          </p>
+          <p>
+            The surgeon console (MTM) publishes handle poses over ROS. Handle position drives the robot arm, and handle
+            orientation drives the DASH motors. Arm inverse kinematics enforce a remote center of motion (RCM): the
+            residual between the shaft line and the RCM point is driven to zero, and the four redundant joints of the
+            7-DOF arm are resolved with a posture objective. The shaft must stay within a 10&nbsp;mm diameter around the RCM.
+          </p>
+        </div>
+        <figure class="figure">
+          <img src="./static/images/fig5_teleop.jpg" alt="Teleoperation pipeline: master console, tool identification chain, RCM arm controller, and humanoid robot.">
+          <figcaption><b>Teleoperation pipeline.</b> After a tool is inserted, its ID is read and kinematics are updated. The MTM publishes target instrument poses, commanding the humanoid and DASH to place the end effector under the RCM constraint.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+
+        <div class="stat-row">
+          <div class="stat"><div class="v">20.3 <small>ms</small></div><div class="k">End-to-end latency, vs. 156 ms for the previous humanoid system</div></div>
+          <div class="stat"><div class="v">41.45 <small>mm</small></div><div class="k">Executed radius for a 40 mm commanded circle (previous: 49.83 mm)</div></div>
+          <div class="stat"><div class="v">60/60</div><div class="k">Correct tool ID and zeroing across all insertions</div></div>
+          <div class="stat"><div class="v">3.39 <small>s</small></div><div class="k">Mean tool exchange time with DASH Xi</div></div>
+        </div>
+
+        <h3 class="title is-4">Adapter validation</h3>
+        <div class="table-wrap content">
+          <table class="table spec">
+            <thead>
+              <tr><th>Test</th><th>DASH C</th><th>DASH Xi</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Mass (kg)</td><td class="num">0.439</td><td class="num">0.463</td></tr>
+              <tr><td>Last-motor latency (ms)<sup>a</sup></td><td class="num">5.07 ± 0.04</td><td class="num">5.01 ± 0.05</td></tr>
+              <tr><td>Tool ID &amp; zeroing<sup>b</sup></td><td class="num">40/40</td><td class="num">20/20</td></tr>
+              <tr><td>Tool exchange time (s)<sup>c</sup></td><td class="num">4.74 ± 1.15</td><td class="num">3.39 ± 0.51</td></tr>
+            </tbody>
+          </table>
+          <p class="table-note"><sup>a</sup> 5 trials × 20 pings; Xi motor 5 unused with 4-DOF tools. <sup>b</sup> 4 (C) or 2 (Xi) tools × 10 insertions each. <sup>c</sup> 10 trials, mean ± SD, from first contact with the installed tool to full seating of the next.</p>
+        </div>
+
+        <div class="columns is-centered" style="margin-top: 1.5rem;">
+          <div class="column">
+            <h3 class="title is-4">Command-execution tracking</h3>
+            <div class="content has-text-justified">
+              <p>
+                Commanded to trace a 40&nbsp;mm circle at the tool tip, the humanoid with DASH produced a
+                41.45&nbsp;±&nbsp;0.30&nbsp;mm radius over three trials. The previous system, with handheld Livsmed
+                tools and a physically constrained RCM, produced 49.83&nbsp;±&nbsp;1.09&nbsp;mm.
+              </p>
+            </div>
+            <figure class="figure">
+              <img src="./static/images/fig8_tracking.jpg" alt="Commanded versus executed tool tip circle for DASH and the previous system, in-plane and 3D views.">
+              <figcaption>In-plane radial RMS error: 2.26 ± 0.49 mm with DASH vs. 10.63 ± 1.32 mm for the previous system.</figcaption>
+            </figure>
+          </div>
+          <div class="column">
+            <h3 class="title is-4">RCM convergence</h3>
+            <div class="content has-text-justified">
+              <p>
+                OptiTrack markers on either side of the RCM tracked the shaft over random trajectories. The two
+                estimated RCMs sit 15.79&nbsp;mm apart on a 410&nbsp;mm shaft, with pivot errors of
+                3.37&nbsp;±&nbsp;2.44&nbsp;mm and 2.64&nbsp;±&nbsp;1.54&nbsp;mm, inside the 10&nbsp;mm bound.
+              </p>
+            </div>
+            <figure class="figure">
+              <img src="./static/images/fig9_rcm.jpg" alt="3D plot of shaft lines from two trials converging at the remote center of motion.">
+              <figcaption>Shaft lines from two trials converge on the remote center of motion.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column">
+            <h3 class="title is-4">Xi coupling matrices</h3>
+            <div class="content has-text-justified">
+              <p>
+                Xi coupling matrices are not public, so we measured them by tracking tool motion in 3D with Kinovea
+                from several camera angles. Near-zero slopes in angular error show acceptable coupling accuracy for
+                the Mega SutureCut Needle Driver and Tenaculum Forceps.
+              </p>
+            </div>
+            <figure class="figure">
+              <img src="./static/images/fig6_coupling_error.jpg" alt="Angular error versus commanded angle in roll, pitch and yaw for two Xi instruments.">
+              <figcaption>Error vs. commanded angle for the 8 mm Mega SutureCut Needle Driver (left) and Tenaculum Forceps (right), mean ± 1σ.</figcaption>
+            </figure>
+          </div>
+          <div class="column">
+            <h3 class="title is-4">Simulation and initialization</h3>
+            <div class="content has-text-justified">
+              <p>
+                A simulation built from ground-truth dimensions validated the full pipeline, from RCM initialization
+                to MTM teleoperation. The robot moves from a neutral pose to place the tool at the predefined RCM and
+                insertion depth, then hands control to the surgeon console.
+              </p>
+            </div>
+            <figure class="figure">
+              <img src="./static/images/fig7_init.jpg" alt="Simulated humanoid in neutral and initialized poses, and the real humanoid performing a peg transfer.">
+              <figcaption>Neutral and initialized poses (top) and the teleoperated humanoid completing a peg transfer (bottom).</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <h3 class="title is-4">Conclusion</h3>
+        <div class="content has-text-justified">
+          <p>
+            Surgical-grade da Vinci Classic and Xi instruments can be reliably decoupled from the da Vinci platform
+            and operated on general-purpose robots with DASH. For healthcare, this opens a more realistic path toward
+            robotic assistance in hospitals without dedicated surgical robots. For robotics researchers, mounting
+            clinical-grade instruments on widely available humanoid and serial-link robots lowers the barrier to
+            surgical robotics research without a full da Vinci installation or the da Vinci Research Kit. DASH has not
+            yet been validated on a full surgical task, under sterilization constraints, or with a surgeon at the console.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <div class="bib-head">
+      <h2 class="title" style="margin: 0;">BibTeX</h2>
+      <button class="copy-btn" id="copy-bibtex" type="button"><span class="label">Copy</span></button>
+    </div>
+    <pre><code id="bibtex-code">@misc{wickenhiser2026dash,
+  author = {Wickenhiser, Sara and Zhou, Junrong and Liang, Zekai and Peiros, Lizzie and Liu, Shanglei and Yip, Michael C.},
+  title  = {{DASH}: A da Vinci Adapter for Serial-link and Humanoid Robots as an Accessible Platform for Surgical Robotics Research},
+  year   = {2026},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="./static/pdf/DASH_paper.pdf" target="_blank" rel="noopener" aria-label="Paper PDF">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            Template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
